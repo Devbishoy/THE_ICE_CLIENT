@@ -39,36 +39,26 @@ public class ClientController {
 		return "assignment";
 	}
 
-	
 	@RequestMapping("/ingest")
 	public String ingest(@RequestParam(value = "text", required = false, defaultValue = "World") String text,
 			Model model) {
-//		ObjectInputStream fromServer;
-//		try {
-//			fromServer = clientConnectorInstance.getServerConnection(clientConnectorInstance.INGEST, text);
-//			String url = clientConnectorInstance.getIngest(fromServer);
-//			model.addAttribute("url","file:///"+ url);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		model.addAttribute("name","name");
+		model.addAttribute("name", "name");
 		return "ingest";
 	}
-	
-	@RequestMapping(value="/ingest/download", method=RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+
+	@RequestMapping(value = "/ingest/download", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
-	public FileSystemResource downloadFile(@RequestParam(value="text") String text) {
+	public FileSystemResource downloadFile(@RequestParam(value = "text") String text) {
 		ObjectInputStream fromServer;
 		try {
 			fromServer = clientConnectorInstance.getServerConnection(clientConnectorInstance.INGEST, text);
 			String url = clientConnectorInstance.getIngest(fromServer);
-			 return new FileSystemResource(new File(url));
+			return new FileSystemResource(new File(url));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-	   
+
 	}
 }
