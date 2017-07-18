@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+<!-- 		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+<script type="text/javascript" language="javascript"
+	src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" language="javascript"
+	src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />
+
+</head>
+
+<body>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	} );
+</script>
+	<p th:text="'Hello, ' + ASSIGNMENT+ '!'"  align="center" />
+	<table id="example" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>userId</th>
+				<th>id</th>
+				<th>title</th>
+				<th>body</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="assignment : ${assignmentList}">
+
+				<tr>
+					<td th:text="${assignment.userId}">A assignment Test'</td>
+					<td th:text="${assignment.id}">A assignment Test'</td>
+					<td th:text="${assignment.title}">A assignment Test'</td>
+					<td th:text="${assignment.body}">A assignment Test'</td>
+				</tr>
+
+			</th:block>
+
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>userId</th>
+				<th>id</th>
+				<th>title</th>
+				<th>body.</th>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

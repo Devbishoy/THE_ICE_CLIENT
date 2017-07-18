@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+<!-- 		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+<script type="text/javascript" language="javascript"
+	src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" language="javascript"
+	src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />
+
+</head>
+
+<body>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#pdf').change(function() {
+      var newurl = "/ingest/download?text="+$('#pdf').val();
+      $('a.target').attr('href', newurl);
+    });
+});
+ function bar() {
+    return "/ingest/download?text="+$('#text').val(); 
+ }
+ </script>
+
+	
+	<input type="text" id="pdf" value="Enter TEXT" />
+   <a class="target" href="#">Download</a>
+
+
+	
+</body>
+</html>
